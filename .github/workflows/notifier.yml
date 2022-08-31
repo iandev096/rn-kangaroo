@@ -30,8 +30,7 @@ jobs:
           message: |
             ${{ github.actor }} _Isaac Anyimiah_ created commit: 
 
-            Commit message summary: ${{ github.event.commits[0].message }}
-            Commit message full: ${{ join(github.event.commits, ' ||| ') }}
+            Commit message: ${{ github.event.commits[0].message }}
 
             Repository: ${{ github.repository }}
 
