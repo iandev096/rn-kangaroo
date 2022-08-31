@@ -28,6 +28,11 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} _Isaac Anyimiah_ created commit: Commit message: ${{ github.event.commits[0].message }}
+            ${{ github.actor }} _Isaac Anyimiah_ created commit: 
+
+            Commit message: ${{ github.event.commits[0].message }}
+            Commit message: ${{ github.event.commits }}
+
             Repository: ${{ github.repository }}
+
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
