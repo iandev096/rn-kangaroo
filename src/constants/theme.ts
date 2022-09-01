@@ -1,11 +1,13 @@
-const PRIMARY_A = "#161925";
-const PRIMARY_B = "#FFFFFF";
-const ACCENT = "#F58F29";
-const GRAY_700 = "#333333";
-const GRAY_600 = "#545454";
-const GRAY_500 = "#757575";
-const GRAY_400 = "#AFAFAF";
-const GRAY_300 = "#CBCBCB";
-const GRAY_200 = "#E2E2E2";
-const GRAY_100 = "#EEEEEE";
-const GRAY_50 = "#F6F6F6";
+export default {
+  PRIMARY_A: "#161925",
+  PRIMARY_B: "#FFFFFF",
+  ACCENT: "#F58F29",
+  GRAY_700: "#333333",
+  GRAY_600: "#545454",
+  GRAY_500: "#757575",
+  GRAY_400: "#AFAFAF",
+  GRAY_300: "#CBCBCB",
+  GRAY_200: "#E2E2E2",
+  GRAY_100: "#EEEEEE",
+  GRAY_50: "#F6F6F6",
+};
