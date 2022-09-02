@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FONT_FAMILY } from "src/constants/FONT";
@@ -13,17 +19,22 @@ function SignInScreen({}: Props) {
 
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["left", "right", "bottom"]}>
-      <ScrollView scrollEnabled={scrollEnabled}>
-        <View onLayout={onLayout}>
-          <AuthHeader />
-          <View style={styles.form}>
-            <SignInForm />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={{ flex: 1 }}
+      >
+        <ScrollView scrollEnabled={scrollEnabled}>
+          <View onLayout={onLayout}>
+            <AuthHeader />
+            <View style={styles.form}>
+              <SignInForm />
+            </View>
+            <View>
+              <Text style={styles.version}>V.1.0</Text>
+            </View>
           </View>
-          <View>
-            <Text style={styles.version}>V.1.0</Text>
-          </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
