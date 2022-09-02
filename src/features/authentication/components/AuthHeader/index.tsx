@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 18,
+    lineHeight: 23,
     fontFamily: FONT_FAMILY.BR_FIRMA_LIGHT,
     color: THEME.PRIMARY_B,
   },
