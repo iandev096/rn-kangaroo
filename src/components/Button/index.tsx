@@ -23,13 +23,13 @@ function Button({ title, style = {}, ...props }: Props) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: THEME.PRIMARY_A,
-    paddingHorizontal: 16,
-    paddingVertical: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
     borderRadius: 3,
     alignItems: "center",
   },
   text: {
-    fontSize: 24,
+    fontSize: 18,
     fontFamily: FONT_FAMILY.BR_FIRMA_MEDIUM,
     lineHeight: 24,
     color: THEME.PRIMARY_B,
