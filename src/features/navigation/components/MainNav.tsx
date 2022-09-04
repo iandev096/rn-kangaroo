@@ -5,7 +5,7 @@ import {
   Theme,
 } from "@react-navigation/native";
 import MainStack from "./MainStack";
-import THEME from "src/constants/THEME";
+import COLOR from "src/constants/COLOR";
 
 type Props = {};
 
@@ -13,8 +13,8 @@ const navTheme: Theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: THEME.PRIMARY_A,
-    background: THEME.PRIMARY_B,
+    primary: COLOR.PRIMARY_A,
+    background: COLOR.PRIMARY_B,
   },
 };
 

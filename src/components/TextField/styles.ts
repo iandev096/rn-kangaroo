@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { FONT_FAMILY } from "src/constants/FONT";
-import THEME from "src/constants/THEME";
+import COLOR from "src/constants/COLOR";
 import { Size, Status, StyleConfig } from "./types";
 
 export const getStyles = ({ size, disabled, focus, status }: StyleConfig) =>
@@ -48,7 +48,7 @@ const height: Record<Size, number> = {
 };
 
 const borderColor: Record<Status | "active", string> = {
-  active: THEME.PRIMARY_A,
+  active: COLOR.PRIMARY_A,
   error: "#F1998E",
   success: "#66D19E",
   normal: "transparent",
@@ -56,14 +56,14 @@ const borderColor: Record<Status | "active", string> = {
 
 const backgroundColor: Record<Status | "disabled", string> = {
   success: "#E6F2ED",
-  disabled: THEME.GRAY_50,
+  disabled: COLOR.GRAY_50,
   error: "#FFEFED",
-  normal: THEME.GRAY_100,
+  normal: COLOR.GRAY_100,
 };
 
 const color: Record<Status | "disabled", string> = {
-  success: THEME.PRIMARY_A,
-  disabled: THEME.GRAY_400,
-  error: THEME.PRIMARY_A,
-  normal: THEME.PRIMARY_A,
+  success: COLOR.PRIMARY_A,
+  disabled: COLOR.GRAY_400,
+  error: COLOR.PRIMARY_A,
+  normal: COLOR.PRIMARY_A,
 };

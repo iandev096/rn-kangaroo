@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FONT_FAMILY } from "src/constants/FONT";
-import THEME from "src/constants/THEME";
+import COLOR from "src/constants/COLOR";
 
 type Props = { title: string } & TouchableOpacity["props"];
 
@@ -22,7 +22,7 @@ function Button({ title, style = {}, ...props }: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: THEME.PRIMARY_A,
+    backgroundColor: COLOR.PRIMARY_A,
     paddingHorizontal: 20,
     paddingVertical: 16,
     borderRadius: 3,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: FONT_FAMILY.BR_FIRMA_MEDIUM,
     lineHeight: 24,
-    color: THEME.PRIMARY_B,
+    color: COLOR.PRIMARY_B,
   },
 });
 

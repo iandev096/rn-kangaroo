@@ -3,7 +3,7 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { FONT_FAMILY } from "src/constants/FONT";
 import IMAGES from "src/constants/IMAGES";
-import THEME from "src/constants/THEME";
+import COLOR from "src/constants/COLOR";
 
 type Props = {};
 
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     height: 284,
     width: "100%",
     position: "relative",
-    backgroundColor: THEME.PRIMARY_B,
+    backgroundColor: COLOR.PRIMARY_B,
     justifyContent: "center",
   },
   content: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 23,
     fontFamily: FONT_FAMILY.BR_FIRMA_LIGHT,
-    color: THEME.PRIMARY_B,
+    color: COLOR.PRIMARY_B,
   },
   background: {
     ...StyleSheet.absoluteFillObject,
