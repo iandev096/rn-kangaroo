@@ -25,7 +25,7 @@ function FullScreenProgressLoader({ loadingText, ...props }: Props) {
 
   useEffect(() => {
     progress.value = withRepeat(withTiming(1, { duration: 5000 }), 20, true);
-  }, []);
+  }, [progress]);
 
   const animatedProps = useAnimatedProps<CircleProps>(() => ({
     strokeDashoffset: CIRCLE_LENGTH * (1 - progress.value),

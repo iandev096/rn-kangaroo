@@ -37,13 +37,13 @@ function SignInScreen({}: Props) {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
-      <FullScreenProgressLoader
+      {/* <FullScreenProgressLoader
         loadingText="Signing in..."
         animationType="fade"
         transparent={true}
         visible={true}
         onRequestClose={() => console.log("closing")}
-      />
+      /> */}
     </SafeAreaView>
   );
 }
