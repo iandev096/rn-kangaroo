@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
+import FullScreenProgressLoader from "src/components/FullScreenProgressLoader";
 import { FONT_FAMILY } from "src/constants/FONT";
 import { AuthHeader, SignInForm } from "src/features/authentication";
 import useScrollEnabled from "src/hooks/useScrollEnabled";
@@ -20,7 +21,8 @@ function SignInScreen({}: Props) {
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["left", "right", "bottom"]}>
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        behavior={"height"}
+        keyboardVerticalOffset={40}
         style={{ flex: 1 }}
       >
         <ScrollView scrollEnabled={scrollEnabled}>
@@ -35,6 +37,13 @@ function SignInScreen({}: Props) {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
+      <FullScreenProgressLoader
+        loadingText="Signing in..."
+        animationType="fade"
+        transparent={true}
+        visible={true}
+        onRequestClose={() => console.log("closing")}
+      />
     </SafeAreaView>
   );
 }
