@@ -1,13 +1,23 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerNavigationOptions,
+} from "@react-navigation/drawer";
 import React from "react";
-import SettingsScreen from "src/screens/SettingsScreen";
+import HomeScreen from "src/screens/HomeScreen";
+import { AppDrawerParamList } from "./types";
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator<AppDrawerParamList>();
+
+const defaultOptions: DrawerNavigationOptions = { headerShown: false };
 
 function AppDrawer() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Settings" component={SettingsScreen} />
+      <Drawer.Screen
+        options={defaultOptions}
+        name="Home"
+        component={HomeScreen}
+      />
     </Drawer.Navigator>
   );
 }
