@@ -4,7 +4,9 @@ import Button from "src/components/Button";
 import TextField from "src/components/TextField";
 import { FONT_FAMILY } from "src/constants/FONT";
 
-type Props = {};
+type Props = {
+  onSubmit?: Function;
+};
 
 function SignInForm({}: Props) {
   return (
