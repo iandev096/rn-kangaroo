@@ -5,8 +5,9 @@ import {
 import React from "react";
 import SignInScreen from "src/screens/SignInScreen";
 import SignUpScreen from "src/screens/SignUpScreen";
+import { AuthStackParamList } from "./types";
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<AuthStackParamList>();
 const defaultOptions: StackNavigationOptions = { headerShown: false };
 
 function AuthStack() {
