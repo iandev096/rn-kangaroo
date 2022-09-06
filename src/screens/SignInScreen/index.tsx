@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   KeyboardAvoidingView,
@@ -11,20 +12,17 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import FullScreenProgressLoader from "src/components/FullScreenProgressLoader";
 import { FONT_FAMILY } from "src/constants/FONT";
 import { AuthHeader, SignInForm } from "src/features/authentication";
+import { AuthStackProps } from "src/features/navigation/components/AuthStack/types";
 import useScrollEnabled from "src/hooks/useScrollEnabled";
 
-type Props = {};
+type Props = {} & AuthStackProps;
 
 function SignInScreen({}: Props) {
   const { scrollEnabled, onLayout } = useScrollEnabled();
 
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["left", "right", "bottom"]}>
-      <KeyboardAvoidingView
-        behavior={"height"}
-        keyboardVerticalOffset={40}
-        style={{ flex: 1 }}
-      >
+      <KeyboardAvoidingView behavior={"height"} style={{ flex: 1 }}>
         <ScrollView scrollEnabled={scrollEnabled}>
           <View onLayout={onLayout}>
             <AuthHeader />
