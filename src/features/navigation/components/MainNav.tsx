@@ -4,7 +4,7 @@ import {
   NavigationContainer,
   Theme,
 } from "@react-navigation/native";
-import MainStack from "./MainStack";
+import Main from "./Main";
 import COLOR from "src/constants/COLOR";
 
 type Props = {};
@@ -21,7 +21,7 @@ const navTheme: Theme = {
 function MainNav({}: Props) {
   return (
     <NavigationContainer theme={navTheme}>
-      <MainStack />
+      <Main />
     </NavigationContainer>
   );
 }
