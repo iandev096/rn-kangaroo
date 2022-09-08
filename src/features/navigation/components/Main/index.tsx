@@ -1,9 +1,9 @@
 import React from "react";
-import AppDrawer from "../AppDrawer";
+import AppStack from "../AppStack";
 import AuthStack from "../AuthStack";
 
 function Main() {
-  return <>{false ? <AuthStack /> : <AppDrawer />}</>;
+  return <>{false ? <AuthStack /> : <AppStack />}</>;
 }
 
 export default Main;

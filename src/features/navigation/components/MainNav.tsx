@@ -6,6 +6,7 @@ import {
 } from "@react-navigation/native";
 import Main from "./Main";
 import COLOR from "src/constants/COLOR";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 type Props = {};
 
@@ -20,9 +21,11 @@ const navTheme: Theme = {
 
 function MainNav({}: Props) {
   return (
-    <NavigationContainer theme={navTheme}>
-      <Main />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer theme={navTheme}>
+        <Main />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
