@@ -4,11 +4,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "src/components/Button";
 import { DrawerScreenHeader } from "src/features/drawer";
 import { DeliverToForm } from "src/features/location";
-import { AppDrawerProps } from "src/features/navigation/components/AppDrawer/types";
+import { AppStackProps } from "src/features/navigation/components/AppStack/types";
 
-type Props = {} & AppDrawerProps;
+type Props = {} & AppStackProps;
 
-function HomeScreen({}: Props) {
+function HomeScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.screen}>
       <DrawerScreenHeader
@@ -16,7 +16,9 @@ function HomeScreen({}: Props) {
       />
 
       <View>
-        <DeliverToForm />
+        <DeliverToForm
+          onPressTextField={() => navigation.navigate("EnterLocation")}
+        />
       </View>
 
       <View style={styles.buttonContainer}>
