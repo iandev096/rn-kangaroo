@@ -1,5 +1,5 @@
 import "react-native-gesture-handler";
-import AppEntry from "src/features/navigation";
+import { MainNav } from "src/features/navigation";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import FONT from "src/constants/FONT";
@@ -26,5 +26,5 @@ export default function App() {
     return null;
   }
 
-  return <AppEntry />;
+  return <MainNav />;
 }
