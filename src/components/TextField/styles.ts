@@ -10,9 +10,9 @@ export const getStyles = ({ size, disabled, focus, status }: StyleConfig) =>
       color: disabled ? color["disabled"] : color[status],
       fontSize: fontSize[size],
       lineHeight: 20,
+      marginBottom: 8,
     },
     textInputContainer: {
-      marginTop: 8,
       backgroundColor: disabled
         ? backgroundColor["disabled"]
         : backgroundColor[status],
@@ -29,7 +29,6 @@ export const getStyles = ({ size, disabled, focus, status }: StyleConfig) =>
       color: disabled ? color["disabled"] : color[status],
       fontSize: fontSize[size],
       height: "100%",
-      lineHeight: 20,
     },
     closeIcon: {
       position: "absolute",
