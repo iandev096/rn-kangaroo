@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY.BR_FIRMA_MEDIUM,
     fontSize: 48,
     lineHeight: 64,
-    marginBottom: 36,
+    marginBottom: 20,
   },
   textField: {
     backgroundColor: COLOR.GRAY_100,
