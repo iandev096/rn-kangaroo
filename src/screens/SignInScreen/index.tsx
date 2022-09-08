@@ -1,18 +1,10 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import {
-  KeyboardAvoidingView,
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
-import FullScreenProgressLoader from "src/components/FullScreenProgressLoader";
 import { FONT_FAMILY } from "src/constants/FONT";
 import { AuthHeader, SignInForm } from "src/features/authentication";
-import { AuthStackProps } from "src/features/navigation/components/AuthStack/types";
+import { AuthStackProps } from "src/features/navigation";
 import useScrollEnabled from "src/hooks/useScrollEnabled";
 
 type Props = {} & AuthStackProps;
