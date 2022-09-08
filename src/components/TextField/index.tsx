@@ -12,6 +12,7 @@ function TextField({
   size = "medium",
   disabled = false,
   status = "normal",
+  containerStyle,
   ...props
 }: TextFieldProps) {
   const [focus, setFocus] = useState(false);
@@ -29,7 +30,7 @@ function TextField({
   };
 
   return (
-    <View>
+    <View style={containerStyle}>
       {label ? <Text style={styles.label}>{label}</Text> : null}
       <View style={styles.textInputContainer}>
         <TextInput
@@ -37,6 +38,7 @@ function TextField({
           style={[style, styles.textInput]}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
+          editable={!disabled}
           {...props}
         />
         {hasTyped ? (
