@@ -1,6 +1,29 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Animated, Dimensions, StyleSheet } from "react-native";
 import COLOR from "src/constants/COLOR";
 import { FONT_FAMILY } from "src/constants/FONT";
+import { AnimatedViewStyle } from "src/types/animated";
+
+export const getAnimStyle = (pageRevealValue: Animated.Value) => {
+  const animStyle: AnimatedViewStyle = {
+    height: 190,
+    transform: [
+      {
+        translateY: pageRevealValue.interpolate({
+          inputRange: [0, 1],
+          outputRange: [-300, 0],
+        }),
+      },
+      {
+        scale: pageRevealValue.interpolate({
+          inputRange: [0, 1],
+          outputRange: [1.3, 1],
+        }),
+      },
+    ],
+    opacity: pageRevealValue,
+  };
+  return animStyle;
+};
 
 export const styles = StyleSheet.create({
   container: {

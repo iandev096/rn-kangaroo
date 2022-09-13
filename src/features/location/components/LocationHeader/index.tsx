@@ -11,8 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 import COLOR from "src/constants/COLOR";
 import TextField from "src/components/TextField";
 import IMAGES from "src/constants/IMAGES";
-import { styles } from "./styles";
-import { AnimatedViewStyle } from "src/types/animated";
+import { getAnimStyle, styles } from "./styles";
 
 type Props = {
   onPressBack?: ((event: GestureResponderEvent) => void) | null;
@@ -20,24 +19,7 @@ type Props = {
 };
 
 function LocationHeader({ onPressBack, pageRevealValue }: Props) {
-  const animStyle: AnimatedViewStyle = {
-    height: 190,
-    transform: [
-      {
-        translateY: pageRevealValue.interpolate({
-          inputRange: [0, 1],
-          outputRange: [-300, 0],
-        }),
-      },
-      {
-        scale: pageRevealValue.interpolate({
-          inputRange: [0, 1],
-          outputRange: [1.3, 1],
-        }),
-      },
-    ],
-    opacity: pageRevealValue,
-  };
+  const animStyle = getAnimStyle(pageRevealValue);
 
   return (
     <Animated.View style={[styles.container, animStyle]}>
