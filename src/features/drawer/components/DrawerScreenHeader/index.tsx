@@ -26,7 +26,7 @@ function DrawerScreenHeader({ onMenuPress }: Props) {
   );
 }
 
-const MENU_ICON_SHADOW = 12;
+const MENU_ICON_SHADOW = 20;
 
 const styles = StyleSheet.create({
   header: {
