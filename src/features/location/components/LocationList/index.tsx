@@ -1,52 +1,61 @@
 import React from "react";
-import { Animated, StyleSheet, Text, View } from "react-native";
+import { Animated, FlatList, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import BottomAction from "src/components/BottomAction";
-import SkeletonBlock from "src/components/SkeletonBlock";
-import COLOR from "src/constants/COLOR";
-import { AnimatedViewStyle } from "src/types/animated";
+import LocationListItem from "./LocationListItem";
 import LocationListSkeleton from "./LocationListSkeleton";
+import { getAnimStyle, styles } from "./styles";
 
 type Props = {
   pageRevealValue: Animated.Value;
 };
 
+const DATA = [...new Array(8)].map(() => ({
+  title: "Label",
+  description: "Paragraph",
+}));
+
 function LocationList({ pageRevealValue }: Props) {
-  const animStyle: AnimatedViewStyle = {
-    transform: [
-      {
-        translateY: pageRevealValue.interpolate({
-          inputRange: [0, 1],
-          outputRange: [400, 0],
-        }),
-      },
-      {
-        scale: pageRevealValue.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0.6, 1],
-        }),
-      },
-    ],
-    opacity: pageRevealValue,
-  };
+  const animStyle = getAnimStyle(pageRevealValue);
+  const loading = false;
 
   return (
     <Animated.View style={[styles.cardContainer, animStyle]}>
-      {/* replace with flatList */}
-      <View>
-        <Text>LocationList</Text>
+      {loading ? (
         <LocationListSkeleton />
+      ) : (
+        <FlatList
+          contentContainerStyle={styles.listContentContainer}
+          data={DATA}
+          renderItem={({ item, index }) => (
+            <LocationListItem
+              title={item.title}
+              description={item.description}
+              onPress={() => console.log("pressed item")}
+            />
+          )}
+        />
+      )}
+      <View>
+        <LinearGradient
+          colors={[
+            "transparent",
+            "rgba(0,0,0,0.0)",
+            "rgba(0,0,0,0.01)",
+            "rgba(0,0,0,0.02)",
+            "rgba(0,0,0,0.06)",
+            "rgba(0,0,0,0.08)",
+            "rgba(0,0,0,0.1)",
+          ]}
+          style={{
+            height: 30,
+            marginTop: -30,
+          }}
+        />
+        <BottomAction />
       </View>
-      <BottomAction />
     </Animated.View>
   );
 }
-
-const styles = StyleSheet.create({
-  cardContainer: {
-    marginTop: -60,
-    backgroundColor: COLOR.PRIMARY_B,
-    flexGrow: 1,
-  },
-});
 
 export default LocationList;
