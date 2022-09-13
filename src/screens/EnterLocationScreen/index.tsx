@@ -1,4 +1,5 @@
 import React from "react";
+import { KeyboardAvoidingView, Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   LocationHeader,
@@ -18,7 +19,13 @@ function EnterLocationScreen({ navigation }: Props) {
         pageRevealValue={progress}
         onPressBack={() => navigation.goBack()}
       />
-      <LocationList pageRevealValue={progress} />
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === "android" ? "height" : "padding"}
+        keyboardVerticalOffset={47}
+      >
+        <LocationList pageRevealValue={progress} />
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
