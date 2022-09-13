@@ -26,7 +26,7 @@ function LocationListSkeleton({}: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
+    padding: 16,
   },
   item: {
     flexDirection: "row",
