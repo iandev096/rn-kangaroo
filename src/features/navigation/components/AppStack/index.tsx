@@ -3,6 +3,7 @@ import {
   StackNavigationOptions,
 } from "@react-navigation/stack";
 import React from "react";
+import ConfirmLocationScreen from "src/screens/ConfirmLocationScreen";
 import EnterLocationScreen from "src/screens/EnterLocationScreen";
 import HomeScreen from "src/screens/HomeScreen";
 import { AppStackParamList } from "./types";
@@ -16,6 +17,11 @@ const defaultOptions: StackNavigationOptions = {
 function AppStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        options={defaultOptions}
+        name="ConfirmLocation"
+        component={ConfirmLocationScreen}
+      />
       <Stack.Screen
         options={defaultOptions}
         name="Home"
