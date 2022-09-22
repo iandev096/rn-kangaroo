@@ -2,8 +2,10 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AppStackProps } from "src/features/navigation";
 import { StyleSheet } from "react-native";
-import ConfirmLocationMap from "src/features/location/components/ConfirmLocationMap";
-import ConfirmLocationBottomSheet from "src/features/location/components/ConfirmLocationBottomSheet";
+import {
+  ConfirmLocationBottomSheet,
+  ConfirmLocationMap,
+} from "src/features/location";
 
 type Props = {} & AppStackProps;
 
