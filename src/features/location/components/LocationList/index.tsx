@@ -1,7 +1,7 @@
 import React from "react";
 import { Animated, FlatList, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 import BottomAction from "src/components/BottomAction";
+import FakeShadowUp from "src/components/FakeShadowUp";
 import LocationListItem from "./LocationListItem";
 import LocationListSkeleton from "./LocationListSkeleton";
 import { getAnimStyle, styles } from "./styles";
@@ -37,21 +37,7 @@ function LocationList({ pageRevealValue }: Props) {
         />
       )}
       <View>
-        <LinearGradient
-          colors={[
-            "transparent",
-            "rgba(0,0,0,0.0)",
-            "rgba(0,0,0,0.01)",
-            "rgba(0,0,0,0.02)",
-            "rgba(0,0,0,0.06)",
-            "rgba(0,0,0,0.08)",
-            "rgba(0,0,0,0.1)",
-          ]}
-          style={{
-            height: 30,
-            marginTop: -30,
-          }}
-        />
+        <FakeShadowUp />
         <BottomAction />
       </View>
     </Animated.View>
