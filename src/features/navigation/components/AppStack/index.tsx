@@ -6,6 +6,7 @@ import React from "react";
 import ConfirmLocationScreen from "src/screens/ConfirmLocationScreen";
 import EnterLocationScreen from "src/screens/EnterLocationScreen";
 import HomeScreen from "src/screens/HomeScreen";
+import RecipientScreen from "src/screens/RecipientScreen";
 import { AppStackParamList } from "./types";
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -19,13 +20,18 @@ function AppStack() {
     <Stack.Navigator>
       <Stack.Screen
         options={defaultOptions}
-        name="ConfirmLocation"
-        component={ConfirmLocationScreen}
+        name="Recipient"
+        component={RecipientScreen}
       />
       <Stack.Screen
         options={defaultOptions}
         name="Home"
         component={HomeScreen}
+      />
+      <Stack.Screen
+        options={defaultOptions}
+        name="ConfirmLocation"
+        component={ConfirmLocationScreen}
       />
       <Stack.Screen
         options={{
