@@ -13,9 +13,11 @@ function Button({ title, style = {}, ...props }: Props) {
       style={[style, styles.container]}
       {...props}
     >
-      <Text numberOfLines={1} style={styles.text}>
-        {title}
-      </Text>
+      <View>
+        <Text numberOfLines={1} style={styles.text}>
+          {title}
+        </Text>
+      </View>
     </TouchableOpacity>
   );
 }
