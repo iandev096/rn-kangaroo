@@ -12,6 +12,7 @@ import COLOR from "src/constants/COLOR";
 import TextField from "src/components/TextField";
 import IMAGES from "src/constants/IMAGES";
 import { getAnimStyle, styles } from "./styles";
+import BackButton from "src/components/BackButton";
 
 type Props = {
   onPressBack?: ((event: GestureResponderEvent) => void) | null;
@@ -25,9 +26,8 @@ function LocationHeader({ onPressBack, pageRevealValue }: Props) {
     <Animated.View style={[styles.container, animStyle]}>
       <Image style={styles.bg} source={IMAGES.LOCATION_HEADER_BG} />
       <View style={styles.header}>
-        <Pressable onPress={onPressBack} hitSlop={8} style={styles.backBtn}>
-          <Ionicons name="arrow-back" size={20} color={COLOR.PRIMARY_A} />
-        </Pressable>
+        <BackButton onPress={onPressBack} hitSlop={8} />
+
         <View style={styles.headerTitleContainer}>
           <Text style={styles.headerTitle}>Enter Destination</Text>
         </View>
