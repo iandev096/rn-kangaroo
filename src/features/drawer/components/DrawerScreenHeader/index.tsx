@@ -21,23 +21,24 @@ function DrawerScreenHeader({ onMenuPress }: Props) {
       >
         <Image source={IMAGES.MENU_ICON} style={styles.menuIcon} />
       </Pressable>
-      <Image source={IMAGES.KANGAROO_ICON} style={styles.menuIcon} />
+      <Image source={IMAGES.KANGAROO_ICON} style={styles.kangarooIcon} />
     </View>
   );
 }
 
-const MENU_ICON_SHADOW = 20;
+const MENU_ICON_SHADOW = 36;
 
 const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   menuIcon: {
     height: 44 + MENU_ICON_SHADOW,
     width: 44 + MENU_ICON_SHADOW,
     resizeMode: "contain",
-    marginLeft: -MENU_ICON_SHADOW,
+    marginLeft: -20,
   },
   kangarooIcon: {
     width: 56,
