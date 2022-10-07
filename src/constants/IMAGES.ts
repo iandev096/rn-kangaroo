@@ -7,4 +7,12 @@ export default {
   MAP_BACK: require("../../assets/icons/map-back.png"),
   CUR_LOC: require("../../assets/icons/cur-loc.png"),
   SHOP_PLACEHOLDER_LOGO: require("../../assets/images/shop-placeholder-logo.png"),
+  VEHICLE_BIKE: require("../../assets/images/vehicle-bike.png"),
+  VEHICLE_MOTORBIKE: require("../../assets/images/vehicle-motorbike.png"),
+  VEHICLE_TAXI: require("../../assets/images/vehicle-taxi.png"),
+  VEHICLE_TRICYCLE: require("../../assets/images/vehicle-tricycle.png"),
+  VEHICLE_TRUCK_MID_OPEN: require("../../assets/images/vehicle-truck-mid-open.png"),
+  VEHICLE_TRUCK_MID_ENCLOSED: require("../../assets/images/vehicle-truck-mid-enclosed.png"),
+  VEHICLE_TRUCK_MINI_OPEN: require("../../assets/images/vehicle-truck-mini-open.png"),
+  VEHICLE_TRUCK_MINI_ENCLOSED: require("../../assets/images/vehicle-truck-mini-enclosed.png"),
 };
