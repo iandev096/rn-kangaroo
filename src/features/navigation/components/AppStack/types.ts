@@ -5,6 +5,7 @@ export type AppStackParamList = {
   EnterLocation: undefined;
   ConfirmLocation: undefined;
   Recipient: undefined;
+  ChooseVehicle: undefined;
 };
 
 export type AppStackProps = StackScreenProps<AppStackParamList>;
