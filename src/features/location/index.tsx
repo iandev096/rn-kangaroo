@@ -1,3 +1,4 @@
+import ChooseVehicleMap from "./components/ChooseVehicleMap";
 import ConfirmLocationBottomSheet from "./components/ConfirmLocationBottomSheet";
 import ConfirmLocationMap from "./components/ConfirmLocationMap";
 import DeliverToForm from "./components/DeliverToForm";
@@ -11,5 +12,6 @@ export {
   LocationList,
   ConfirmLocationMap,
   ConfirmLocationBottomSheet,
+  ChooseVehicleMap,
   usePageRevealValue,
 };
