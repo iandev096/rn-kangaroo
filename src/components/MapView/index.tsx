@@ -1,4 +1,11 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 import RNMapView, { PROVIDER_GOOGLE, Region } from "react-native-maps";
 import IMAGES from "src/constants/IMAGES";
@@ -7,11 +14,27 @@ import useCurrentPosition from "src/hooks/useCurrentPosition";
 import { styles } from "./styles";
 
 export type MapProps = { showCurLoc?: boolean } & RNMapView["props"];
+type ImperativeHandleRef = { takeSnapshot: () => any };
 
-function MapView({ style, showCurLoc, ...props }: MapProps) {
+function MapView({ style, showCurLoc, ...props }: MapProps, ref: any) {
+  const [layoutDim, setLayoutDim] = useState<{
+    height: number;
+    width: number;
+  }>();
   const { location } = useCurrentPosition();
 
   const mapRef = useRef<RNMapView>(null);
+  useImperativeHandle(
+    ref,
+    () => ({
+      takeSnapshot: () =>
+        mapRef.current?.takeSnapshot({
+          width: layoutDim?.width,
+          height: layoutDim?.height,
+        }),
+    }),
+    [layoutDim]
+  );
 
   const initialRegion = useMemo<Region | undefined>(() => {
     const [latitude, longitude] = [
@@ -46,7 +69,15 @@ function MapView({ style, showCurLoc, ...props }: MapProps) {
   );
 
   return (
-    <View style={styles.container}>
+    <View
+      style={styles.container}
+      onLayout={(ev) =>
+        setLayoutDim({
+          height: ev.nativeEvent.layout.height,
+          width: ev.nativeEvent.layout.width,
+        })
+      }
+    >
       <RNMapView
         ref={mapRef}
         // initialRegion={initialRegion}
@@ -68,4 +99,4 @@ function MapView({ style, showCurLoc, ...props }: MapProps) {
   );
 }
 
-export default MapView;
+export default forwardRef(MapView);
