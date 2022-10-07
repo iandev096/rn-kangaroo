@@ -1,10 +1,9 @@
 import React, {
+  ForwardedRef,
   forwardRef,
   useEffect,
-  useImperativeHandle,
   useMemo,
   useRef,
-  useState,
 } from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 import RNMapView, { PROVIDER_GOOGLE, Region } from "react-native-maps";
@@ -12,29 +11,16 @@ import IMAGES from "src/constants/IMAGES";
 
 import useCurrentPosition from "src/hooks/useCurrentPosition";
 import { styles } from "./styles";
+import { MapProps, MapViewRefProps } from "./types";
+import useSetupTakeSnapshot from "./useSetupTakeSnapshot";
 
-export type MapProps = { showCurLoc?: boolean } & RNMapView["props"];
-type ImperativeHandleRef = { takeSnapshot: () => any };
-
-function MapView({ style, showCurLoc, ...props }: MapProps, ref: any) {
-  const [layoutDim, setLayoutDim] = useState<{
-    height: number;
-    width: number;
-  }>();
-  const { location } = useCurrentPosition();
-
+function MapView(
+  { style, showCurLoc, ...props }: MapProps,
+  ref: ForwardedRef<MapViewRefProps>
+) {
   const mapRef = useRef<RNMapView>(null);
-  useImperativeHandle(
-    ref,
-    () => ({
-      takeSnapshot: () =>
-        mapRef.current?.takeSnapshot({
-          width: layoutDim?.width,
-          height: layoutDim?.height,
-        }),
-    }),
-    [layoutDim]
-  );
+  const { setSnapshotDim } = useSetupTakeSnapshot(ref, mapRef);
+  const { location } = useCurrentPosition();
 
   const initialRegion = useMemo<Region | undefined>(() => {
     const [latitude, longitude] = [
@@ -69,18 +55,10 @@ function MapView({ style, showCurLoc, ...props }: MapProps, ref: any) {
   );
 
   return (
-    <View
-      style={styles.container}
-      onLayout={(ev) =>
-        setLayoutDim({
-          height: ev.nativeEvent.layout.height,
-          width: ev.nativeEvent.layout.width,
-        })
-      }
-    >
+    <View style={styles.container} onLayout={setSnapshotDim}>
       <RNMapView
         ref={mapRef}
-        // initialRegion={initialRegion}
+        initialRegion={initialRegion}
         onRegionChangeComplete={console.log}
         {...props}
         provider={PROVIDER_GOOGLE}
@@ -99,4 +77,4 @@ function MapView({ style, showCurLoc, ...props }: MapProps, ref: any) {
   );
 }
 
-export default forwardRef(MapView);
+export default forwardRef<MapViewRefProps, MapProps>(MapView);
