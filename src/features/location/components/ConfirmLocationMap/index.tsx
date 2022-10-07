@@ -8,6 +8,7 @@ import {
 import MapView, { MapProps } from "src/components/MapView";
 import IMAGES from "src/constants/IMAGES";
 import Constants from "expo-constants";
+import MapBackButton from "../MapBackButton";
 
 type Props = {
   onPressBack?: (event: GestureResponderEvent) => void;
@@ -17,17 +18,7 @@ function ConfirmLocationMap({ onPressBack, ...mapProps }: Props) {
   return (
     <>
       <MapView {...mapProps} showCurLoc />
-      <TouchableOpacity
-        onPress={onPressBack}
-        activeOpacity={0.8}
-        style={styles.backButton}
-      >
-        <Image
-          source={IMAGES.MAP_BACK}
-          style={styles.backButtonImage}
-          resizeMode="contain"
-        />
-      </TouchableOpacity>
+      <MapBackButton />
     </>
   );
 }
