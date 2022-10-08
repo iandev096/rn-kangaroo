@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FakeShadowUp from "src/components/FakeShadowUp";
 import { ChooseVehicleMap } from "src/features/location";
-import VehicleTypeBottomSheet from "src/features/vehicle/VehicleTypeBottomSheet";
+import { VehicleTypeBottomSheet } from "src/features/vehicle";
 
 type Props = {};
 
