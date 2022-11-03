@@ -8,6 +8,7 @@ import ConfirmLocationScreen from "src/screens/ConfirmLocationScreen";
 import EnterLocationScreen from "src/screens/EnterLocationScreen";
 import HomeScreen from "src/screens/HomeScreen";
 import RecipientScreen from "src/screens/RecipientScreen";
+import SearchingVehicleScreen from "src/screens/SearchingVehicleScreen";
 import { AppStackParamList } from "./types";
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -19,6 +20,11 @@ const defaultOptions: StackNavigationOptions = {
 function AppStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        options={defaultOptions}
+        name="SearchingVehicleScreen"
+        component={SearchingVehicleScreen}
+      />
       <Stack.Screen
         options={defaultOptions}
         name="ChooseVehicle"
