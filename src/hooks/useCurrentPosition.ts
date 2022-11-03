@@ -8,12 +8,16 @@ function useCurrentPosition(deps: any[] = []) {
   useEffect(() => {
     let isMounted = true;
     async function initialize() {
-      const { status } = await Location.requestForegroundPermissionsAsync();
+      const hasServieEnabled = await Location.hasServicesEnabledAsync();
 
-      if (status !== "granted" && isMounted) {
-        setErrorMessage("Permission to access location was not granted");
-        setLocation(undefined);
-        return;
+      if (!hasServieEnabled) {
+        const { status } = await Location.requestForegroundPermissionsAsync();
+
+        if (status !== "granted" && isMounted) {
+          setErrorMessage("Permission to access location was not granted");
+          setLocation(undefined);
+          return;
+        }
       }
 
       const location = await Location.getCurrentPositionAsync();
