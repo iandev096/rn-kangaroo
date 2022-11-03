@@ -15,7 +15,7 @@ import { MapProps, MapViewRefProps } from "./types";
 import useSetupTakeSnapshot from "./useSetupTakeSnapshot";
 
 function MapView(
-  { style, showCurLoc, ...props }: MapProps,
+  { style, showCurLoc = false, ...props }: MapProps,
   ref: ForwardedRef<MapViewRefProps>
 ) {
   const mapRef = useRef<RNMapView>(null);
