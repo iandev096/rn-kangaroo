@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FakeShadowUp from "src/components/FakeShadowUp";
 import { ChooseVehicleMap } from "src/features/location";
-import { VehicleTypeBottomSheet } from "src/features/vehicle";
+import { VehicleTypeBottomFixed } from "src/features/vehicle";
 
 type Props = {};
 
@@ -13,7 +13,7 @@ function ChooseVehicleScreen({}: Props) {
       <ChooseVehicleMap />
       <View>
         <FakeShadowUp />
-        <VehicleTypeBottomSheet />
+        <VehicleTypeBottomFixed />
       </View>
     </SafeAreaView>
   );
