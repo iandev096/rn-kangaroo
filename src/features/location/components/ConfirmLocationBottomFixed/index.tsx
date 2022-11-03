@@ -1,15 +1,15 @@
+import { Ionicons } from "@expo/vector-icons";
+import Constants from "expo-constants";
 import React from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
-import FakeShadowUp from "src/components/FakeShadowUp";
-import { Ionicons } from "@expo/vector-icons";
 import Button from "src/components/Button";
+import FakeShadowUp from "src/components/FakeShadowUp";
 import COLOR from "src/constants/COLOR";
-import Constants from "expo-constants";
 import { FONT_FAMILY } from "src/constants/FONT";
 
 type Props = {};
 
-function ConfirmLocationBottomSheet({}: Props) {
+function ConfirmLocationBottomFixed({}: Props) {
   return (
     <View style={styles.bottomSheetContainer}>
       <FakeShadowUp />
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ConfirmLocationBottomSheet;
+export default ConfirmLocationBottomFixed;
