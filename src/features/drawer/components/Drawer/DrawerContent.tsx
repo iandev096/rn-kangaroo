@@ -3,7 +3,7 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import Animated, {
   SharedValue,
-  useAnimatedStyle,
+  useAnimatedStyle
 } from "react-native-reanimated";
 import InvertedButton from "src/components/InvertedButton";
 import AboutIcon from "src/components/SvgComponents/AboutIcon";
