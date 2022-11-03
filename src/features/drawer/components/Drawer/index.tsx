@@ -1,14 +1,8 @@
-import React, { useCallback, useEffect } from "react";
+import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import { runOnJS } from "react-native-reanimated";
-import {
-  useSharedValue,
-  withSpring,
-  withTiming,
-} from "react-native-reanimated";
+import { GestureDetector } from "react-native-gesture-handler";
 import Backdrop from "./Backdrop";
-import { DRAWER_WIDTH, WIDTH } from "./constants";
+import { WIDTH } from "./constants";
 import DrawerContent from "./DrawerContent";
 import useDrawerAnimations from "./useDrawerAnimations";
 
