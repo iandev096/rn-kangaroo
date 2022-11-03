@@ -4,8 +4,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import FakeShadowUp from "src/components/FakeShadowUp";
 import { SearchingVehicleMap } from "src/features/location";
 import {
-  CancelRequestBottomSheet,
-  SearchingVehicleBottomFixed,
+  CancelRequestBottomFixed,
+  SearchingVehicleBottomFixed
 } from "src/features/vehicle";
 
 type Props = {};
@@ -25,7 +25,7 @@ function SearchingVehicleScreen({}: Props) {
           onVehicleNotFound={() => setShowCancelRequestBottomSheet(false)}
         />
       </View>
-      <CancelRequestBottomSheet
+      <CancelRequestBottomFixed
         show={showCancelRequestBottomSheet}
         onClose={() => setShowCancelRequestBottomSheet(false)}
         onCancel={() => console.log("cancelled")}
