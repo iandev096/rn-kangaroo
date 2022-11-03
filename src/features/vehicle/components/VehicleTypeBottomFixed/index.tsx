@@ -3,7 +3,7 @@ import { Dimensions, StyleSheet, View } from "react-native";
 import IMAGES from "src/constants/IMAGES";
 import VehicleCarousel from "../VehicleCarousel";
 import { VehicleCarouselItem } from "../VehicleCarousel/type";
-import BottomSheetHeader from "./BottomSheetHeader";
+import BottomFixedHeader from "./BottomFixedHeader";
 
 type Props = {};
 
@@ -52,10 +52,10 @@ const DATA: VehicleCarouselItem[] = [
   },
 ];
 
-function VehicleTypeBottomSheet({}: Props) {
+function VehicleTypeBottomFixed({}: Props) {
   return (
     <View style={styles.bottomSheet}>
-      <BottomSheetHeader title={"Choose vehicle type"} />
+      <BottomFixedHeader title={"Choose vehicle type"} />
       <View>
         <VehicleCarousel DATA={DATA} initialSelectedIdx={0} />
       </View>
@@ -67,8 +67,8 @@ const HEIGHT = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   bottomSheet: {
-    height: HEIGHT * 0.68,
+    height: HEIGHT * 0.67,
   },
 });
 
-export default VehicleTypeBottomSheet;
+export default VehicleTypeBottomFixed;

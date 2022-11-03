@@ -5,7 +5,7 @@ import { FONT_FAMILY } from "src/constants/FONT";
 
 type Props = { title: string };
 
-function BottomSheetHeader({ title }: Props) {
+function BottomFixedHeader({ title }: Props) {
   return (
     <View style={styles.bottomSheetHeader}>
       <View style={styles.bar} />
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BottomSheetHeader;
+export default BottomFixedHeader;
