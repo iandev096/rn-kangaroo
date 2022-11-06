@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react";
 import * as Location from "expo-location";
+import { useCallback, useEffect, useState } from "react";
 
-function useCurrentPosition(deps: any[] = []) {
+function useCurrentPosition(deps: any[] = [], onError: (msg: string) => any) {
   const [location, setLocation] = useState<Location.LocationObject>();
-  const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
+  const initLocation = useCallback(async () => {
     let isMounted = true;
-    async function initialize() {
-      const hasServieEnabled = await Location.hasServicesEnabledAsync();
 
+    try {
+      const hasServieEnabled = await Location.hasServicesEnabledAsync();
       if (!hasServieEnabled) {
         const { status } = await Location.requestForegroundPermissionsAsync();
 
         if (status !== "granted" && isMounted) {
-          setErrorMessage("Permission to access location was not granted");
+          onError("Permission to access location was not granted");
           setLocation(undefined);
-          return;
         }
       }
 
@@ -24,16 +22,21 @@ function useCurrentPosition(deps: any[] = []) {
 
       if (isMounted) {
         setLocation(location);
-        setErrorMessage("");
       }
+    } catch (err: any) {
+      onError(err?.message ?? '' )
     }
 
-    initialize();
+    return () => {
+      isMounted = false;
+    }
+  }, [])
 
-    () => (isMounted = false);
-  }, [...deps]);
+  useEffect(() => {
+    initLocation();
+  }, [initLocation, ...deps]);
 
-  return { location, errorMessage };
+  return { location, initLocation };
 }
 
 export default useCurrentPosition;
