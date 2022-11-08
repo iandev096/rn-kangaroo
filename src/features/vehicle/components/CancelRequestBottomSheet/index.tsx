@@ -12,7 +12,7 @@ type Props = {
   onCancel: () => any;
 };
 
-function CancelRequestBottomFixed({ show, onClose, onCancel }: Props) {
+function CancelRequestBottomSheet({ show, onClose, onCancel }: Props) {
   const [cancelled, setCancelled] = useState(false);
 
   const handleClose = () => {
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CancelRequestBottomFixed;
+export default CancelRequestBottomSheet;
