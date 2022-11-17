@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import BottomSheet from "src/components/BottomSheet";
 import Button from "src/components/Button";
@@ -24,6 +24,21 @@ function CancelRequestBottomSheet({ show, onClose, onCancel }: Props) {
     onCancel();
     setCancelled(true);
   };
+
+  useEffect(function postCancel() {
+    let timeout;
+    let mounted = true;
+    if (cancelled) {
+      timeout = setTimeout(() => {
+        onClose();
+        if (mounted) setCancelled(false);
+      }, 1000)
+    }
+    return () => {
+      mounted = false;
+    }
+  }, [cancelled])
+  
 
   const cancelQueryView = (
     <View style={[styles.cancelQueryView, styles.container]}>

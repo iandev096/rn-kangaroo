@@ -32,7 +32,7 @@ function SearchingVehicleBottomFixed({
       onVehicleFound("vehicle found");
       // onVehicleNotFound();
       if (mounted) {
-        setSearchStatus(SEARCH_STATUS.FOUND);
+        // setSearchStatus(SEARCH_STATUS.FOUND);
       }
     }, 9000);
 
