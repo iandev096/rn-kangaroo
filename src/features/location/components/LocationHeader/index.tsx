@@ -1,18 +1,17 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {
   Animated,
   GestureResponderEvent,
   Image,
-  Pressable,
   Text,
   View,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import BackButton from "src/components/BackButton";
+import TextField from "src/components/TextInputs/TextField";
 import COLOR from "src/constants/COLOR";
-import TextField from "src/components/TextField";
 import IMAGES from "src/constants/IMAGES";
 import { getAnimStyle, styles } from "./styles";
-import BackButton from "src/components/BackButton";
 
 type Props = {
   onPressBack?: ((event: GestureResponderEvent) => void) | null;
