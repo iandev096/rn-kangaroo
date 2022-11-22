@@ -1,7 +1,7 @@
 import React from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Button from "src/components/Button";
-import TextField from "src/components/TextField";
+import TextField from "src/components/TextInputs/TextField";
 import { FONT_FAMILY } from "src/constants/FONT";
 
 type Props = {};
