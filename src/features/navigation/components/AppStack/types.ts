@@ -7,6 +7,7 @@ export type AppStackParamList = {
   Recipient: undefined;
   ChooseVehicle: undefined;
   SearchingVehicleScreen: undefined;
+  CancelReasonsScreen: undefined;
 };
 
 export type AppStackProps = StackScreenProps<AppStackParamList>;
