@@ -3,6 +3,7 @@ import {
   StackNavigationOptions,
 } from "@react-navigation/stack";
 import React from "react";
+import CancelReasonsScreen from "src/screens/CancelReasonsScreen";
 import ChooseVehicleScreen from "src/screens/ChooseVehicleScreen";
 import ConfirmLocationScreen from "src/screens/ConfirmLocationScreen";
 import EnterLocationScreen from "src/screens/EnterLocationScreen";
@@ -20,6 +21,11 @@ const defaultOptions: StackNavigationOptions = {
 function AppStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        options={defaultOptions}
+        name="CancelReasonsScreen"
+        component={CancelReasonsScreen}
+      />
       <Stack.Screen
         options={defaultOptions}
         name="SearchingVehicleScreen"
