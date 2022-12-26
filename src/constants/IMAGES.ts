@@ -15,4 +15,6 @@ export default {
   VEHICLE_TRUCK_MID_ENCLOSED: require("../../assets/images/vehicle-truck-mid-enclosed.png"),
   VEHICLE_TRUCK_MINI_OPEN: require("../../assets/images/vehicle-truck-mini-open.png"),
   VEHICLE_TRUCK_MINI_ENCLOSED: require("../../assets/images/vehicle-truck-mini-enclosed.png"),
+  PROFILE_PIC: require("../../assets/images/profile-pic.jpg"),
+  VEHICLE_PIC: require("../../assets/images/vehicle-pic.jpg"),
 };
