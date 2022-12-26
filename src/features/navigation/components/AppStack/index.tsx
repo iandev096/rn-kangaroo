@@ -10,6 +10,7 @@ import EnterLocationScreen from "src/screens/EnterLocationScreen";
 import HomeScreen from "src/screens/HomeScreen";
 import RecipientScreen from "src/screens/RecipientScreen";
 import SearchingVehicleScreen from "src/screens/SearchingVehicleScreen";
+import VehicleEnRouteScreen from "src/screens/VehicleEnRouteScreen";
 import { AppStackParamList } from "./types";
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -28,13 +29,18 @@ function AppStack() {
       />
       <Stack.Screen
         options={defaultOptions}
-        name="SearchingVehicleScreen"
-        component={SearchingVehicleScreen}
+        name="VehicleEnRouteScreen"
+        component={VehicleEnRouteScreen}
       />
       <Stack.Screen
         options={defaultOptions}
         name="ChooseVehicle"
         component={ChooseVehicleScreen}
+      />
+      <Stack.Screen
+        options={defaultOptions}
+        name="SearchingVehicleScreen"
+        component={SearchingVehicleScreen}
       />
       <Stack.Screen
         options={defaultOptions}
