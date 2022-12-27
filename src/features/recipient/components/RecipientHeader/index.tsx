@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import BackButton from "src/components/BackButton";
 import TransHeader from "src/components/TransHeader";
 import COLOR from "src/constants/COLOR";
 import { FONT_FAMILY } from "src/constants/FONT";
@@ -10,7 +11,7 @@ function RecipientHeader({}: Props) {
   return (
     <View style={styles.header}>
       <TransHeader
-        onPressBack={() => console.log("pressed")}
+        left={<BackButton onPress={() => console.log("pressed")} />}
         bottom={<Text style={styles.title}>Recipient</Text>}
       />
     </View>
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 48,
     lineHeight: 61,
+    marginTop: 16,
     fontFamily: FONT_FAMILY.BR_FIRMA_MEDIUM,
     color: COLOR.PRIMARY_A,
   },
