@@ -17,4 +17,10 @@ export default {
   VEHICLE_TRUCK_MINI_ENCLOSED: require("../../assets/images/vehicle-truck-mini-enclosed.png"),
   PROFILE_PIC: require("../../assets/images/profile-pic.jpg"),
   VEHICLE_PIC: require("../../assets/images/vehicle-pic.jpg"),
+  MAP_THUMB: require("../../assets/images/map-thumb.png"),
+  AVATAR_ACTIVE: require("../../assets/images/avatar-active.png"),
+  AVATAR_CHECK: require("../../assets/images/avatar-check.png"),
+  AVATAR_CLOSE: require("../../assets/images/avatar-close.png"),
+  AVATAR_TRUCK: require("../../assets/images/avatar-truck.png"),
+  AVATAR_SEDAN: require("../../assets/images/avatar-sedan.png"),
 };
