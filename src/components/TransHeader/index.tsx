@@ -1,24 +1,21 @@
 import React from "react";
-import { PressableProps, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Animated from "react-native-reanimated";
-import BackButton from "../BackButton";
 
 type Props = {
+  left: React.ReactNode;
   right?: React.ReactNode;
   bottom?: React.ReactNode;
-  onPressBack?: PressableProps["onPress"];
 };
 
-function TransHeader({ right, bottom, onPressBack }: Props) {
+function TransHeader({ left, right, bottom }: Props) {
   return (
     <Animated.View>
       <View style={styles.top}>
-        <BackButton onPress={onPressBack} />
+        <View>{left}</View>
         {right ? <View>{right}</View> : null}
       </View>
-      {bottom ? (
-        <Animated.View style={[styles.bottom]}>{bottom}</Animated.View>
-      ) : null}
+      {bottom ? <Animated.View>{bottom}</Animated.View> : null}
     </Animated.View>
   );
 }
@@ -28,9 +25,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-  },
-  bottom: {
-    marginTop: 8,
   },
 });
 
