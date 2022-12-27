@@ -9,6 +9,7 @@ export type AppStackParamList = {
   SearchingVehicleScreen: undefined;
   CancelReasonsScreen: undefined;
   VehicleEnRouteScreen: undefined;
+  HistoryListScreen: undefined;
 };
 
 export type AppStackProps = StackScreenProps<AppStackParamList>;
