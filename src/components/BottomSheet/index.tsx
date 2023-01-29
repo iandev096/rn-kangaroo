@@ -16,14 +16,14 @@ type Props = {
   show: boolean;
   onClose: () => any;
   children: React.ReactNode;
-  gestureEnabled: boolean;
+  gestureEnabled?: boolean;
 };
 
 function BottomSheet({
   show,
   onClose,
   children,
-  gestureEnabled = true,
+  gestureEnabled = false,
 }: Props) {
   const [contentHeight, setContentHeight] = useState(0);
   const { gesture, handleClose, translateY } = useBottomSheetAnimations({
