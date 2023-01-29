@@ -23,4 +23,6 @@ export default {
   AVATAR_CLOSE: require("../../assets/images/avatar-close.png"),
   AVATAR_TRUCK: require("../../assets/images/avatar-truck.png"),
   AVATAR_SEDAN: require("../../assets/images/avatar-sedan.png"),
+  HISTORY_DETAIL_MAP: require("../../assets/images/history-detail-map.jpg"),
+  RECIPIENT_AVATAR: require("../../assets/images/recipient-avatar.jpg"),
 };
