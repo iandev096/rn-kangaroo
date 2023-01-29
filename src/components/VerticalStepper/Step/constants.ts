@@ -1,0 +1,3 @@
+export const DEFAULT_ICON_CONTAINER_WIDTH = 32;
+export const DEFAULT_ICON_CONTAINER_HEIGHT = 48;
+export const STEPLINE_OFFSET = 4;
