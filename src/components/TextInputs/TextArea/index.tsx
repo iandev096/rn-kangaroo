@@ -19,8 +19,15 @@ function TextArea(
 ) {
   const [focus, setFocus] = useState(false);
   const styles = getStyles({ size, status, focus, disabled });
+
+  const handleContainerTouch = () => {
+    if (!ref || focus) return;
+    const typedRef = ref as React.RefObject<TextInput>;
+    typedRef.current?.focus();
+  };
+
   return (
-    <View style={containerStyle}>
+    <View style={containerStyle} onTouchEnd={handleContainerTouch}>
       <View style={[styles.textAreaContainer, textInputContainerStyle]}>
         <TextInput
           placeholderTextColor={disabled ? COLOR.GRAY_400 : "#6b6b6b"}
