@@ -7,9 +7,11 @@ import CancelReasonsScreen from "src/screens/CancelReasonsScreen";
 import ChooseVehicleScreen from "src/screens/ChooseVehicleScreen";
 import ConfirmLocationScreen from "src/screens/ConfirmLocationScreen";
 import EnterLocationScreen from "src/screens/EnterLocationScreen";
+import HistoryDetailScreen from "src/screens/HistoryDetailScreen";
 import HistoryListScreen from "src/screens/HistoryListScreen";
 import HomeScreen from "src/screens/HomeScreen";
 import RecipientScreen from "src/screens/RecipientScreen";
+import ReportProblemScreen from "src/screens/ReportProblemScreen";
 import SearchingVehicleScreen from "src/screens/SearchingVehicleScreen";
 import VehicleEnRouteScreen from "src/screens/VehicleEnRouteScreen";
 import { AppStackParamList } from "./types";
@@ -23,6 +25,16 @@ const defaultOptions: StackNavigationOptions = {
 function AppStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        options={defaultOptions}
+        name="ReportProblemScreen"
+        component={ReportProblemScreen}
+      />
+      <Stack.Screen
+        options={defaultOptions}
+        name="HistoryDetailScreen"
+        component={HistoryDetailScreen}
+      />
       <Stack.Screen
         options={defaultOptions}
         name="HistoryListScreen"
