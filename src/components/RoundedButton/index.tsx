@@ -1,15 +1,26 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import COLOR from "src/constants/COLOR";
-import { FONT_FAMILY } from "src/constants/FONT";
+import { Size, Variant } from "src/types/button";
+import { getStyles } from "./styles";
 
 type Props = {
   title: string;
   left?: React.ReactNode | React.ReactNode[];
+  variant?: Variant;
+  size?: Size;
 } & TouchableOpacity["props"];
 
-function RoundedButton({ title, left, style = {}, ...props }: Props) {
+function RoundedButton({
+  title,
+  left,
+  variant = "normal",
+  size = "normal",
+  style = {},
+  ...props
+}: Props) {
+  const styles = getStyles(variant, size);
+
   return (
     <TouchableOpacity
       activeOpacity={0.8}
@@ -25,26 +36,5 @@ function RoundedButton({ title, left, style = {}, ...props }: Props) {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: COLOR.GRAY_100,
-    paddingHorizontal: 20,
-    paddingVertical: 14,
-    borderRadius: 1000,
-    alignItems: "center",
-  },
-  left: { marginRight: 12 },
-  text: {
-    fontSize: 16,
-    fontFamily: FONT_FAMILY.BR_FIRMA_MEDIUM,
-    lineHeight: 20,
-    color: COLOR.PRIMARY_A,
-  },
-  group: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-});
 
 export default RoundedButton;
