@@ -59,6 +59,7 @@ function SearchingVehicleBottomFixed({
           onPress={handleCancelRequest}
           title="Cancel Request"
           left={<BottomSheetHeaderClose />}
+          variant="alternate"
         />
       </View>
     ),
