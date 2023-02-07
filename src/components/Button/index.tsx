@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import COLOR from "src/constants/COLOR";
 import { FONT_FAMILY } from "src/constants/FONT";
+import { Variant } from "src/types/button";
 
-type Variant = "normal" | "alternate";
 type Props = {
   title: string;
   variant?: Variant;
