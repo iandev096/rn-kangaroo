@@ -6,6 +6,7 @@ import React from "react";
 import CancelReasonsScreen from "src/screens/CancelReasonsScreen";
 import ChooseVehicleScreen from "src/screens/ChooseVehicleScreen";
 import ConfirmLocationScreen from "src/screens/ConfirmLocationScreen";
+import EarningsScreen from "src/screens/EarningsScreen";
 import EnterLocationScreen from "src/screens/EnterLocationScreen";
 import HistoryDetailScreen from "src/screens/HistoryDetailScreen";
 import HistoryListScreen from "src/screens/HistoryListScreen";
@@ -25,6 +26,11 @@ const defaultOptions: StackNavigationOptions = {
 function AppStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        options={defaultOptions}
+        name="EarningsScreen"
+        component={EarningsScreen}
+      />
       <Stack.Screen
         options={defaultOptions}
         name="ReportProblemScreen"
