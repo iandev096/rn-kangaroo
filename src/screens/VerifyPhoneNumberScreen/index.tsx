@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import Button from "src/components/Button";
-import { VerifyPhoneHeader, VerifyPhoneOTP } from "src/features/settings";
+import { VerifyPhoneHeader, VerifyPhoneOTP } from "src/features/authentication";
 import useScrollEnabled from "src/hooks/useScrollEnabled";
 
 type Props = {};
