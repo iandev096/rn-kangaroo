@@ -16,6 +16,7 @@ export type AppStackParamList = {
   SettingsScreen: undefined;
   ProfileScreen: undefined;
   VerifyPhoneNumberScreen: undefined;
+  ChangePasswordScreen: undefined;
 };
 
 export type AppStackProps = StackScreenProps<AppStackParamList>;

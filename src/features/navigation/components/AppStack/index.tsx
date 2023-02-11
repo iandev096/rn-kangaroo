@@ -4,6 +4,7 @@ import {
 } from "@react-navigation/stack";
 import React from "react";
 import CancelReasonsScreen from "src/screens/CancelReasonsScreen";
+import ChangePasswordScreen from "src/screens/ChangePasswordScreen";
 import ChooseVehicleScreen from "src/screens/ChooseVehicleScreen";
 import ConfirmLocationScreen from "src/screens/ConfirmLocationScreen";
 import EarningsScreen from "src/screens/EarningsScreen";
@@ -29,6 +30,11 @@ const defaultOptions: StackNavigationOptions = {
 function AppStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        options={defaultOptions}
+        name="ChangePasswordScreen"
+        component={ChangePasswordScreen}
+      />
       <Stack.Screen
         options={{ ...defaultOptions, presentation: "modal" }}
         name="VerifyPhoneNumberScreen"
