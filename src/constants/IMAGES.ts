@@ -25,4 +25,5 @@ export default {
   AVATAR_SEDAN: require("../../assets/images/avatar-sedan.png"),
   HISTORY_DETAIL_MAP: require("../../assets/images/history-detail-map.jpg"),
   RECIPIENT_AVATAR: require("../../assets/images/recipient-avatar.jpg"),
+  GHANA_FLAG: require("../../assets/images/gh-flag.png"),
 };
