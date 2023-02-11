@@ -1,6 +1,6 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Pressable, PressableProps, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import COLOR from "src/constants/COLOR";
 
 type Props = {} & PressableProps;
