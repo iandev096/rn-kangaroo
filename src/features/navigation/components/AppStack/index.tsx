@@ -17,6 +17,7 @@ import ReportProblemScreen from "src/screens/ReportProblemScreen";
 import SearchingVehicleScreen from "src/screens/SearchingVehicleScreen";
 import SettingsScreen from "src/screens/SettingsScreen";
 import VehicleEnRouteScreen from "src/screens/VehicleEnRouteScreen";
+import VerifyPhoneNumberScreen from "src/screens/VerifyPhoneNumberScreen";
 import { AppStackParamList } from "./types";
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -28,6 +29,11 @@ const defaultOptions: StackNavigationOptions = {
 function AppStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        options={{ ...defaultOptions, presentation: "modal" }}
+        name="VerifyPhoneNumberScreen"
+        component={VerifyPhoneNumberScreen}
+      />
       <Stack.Screen
         options={defaultOptions}
         name="ProfileScreen"
