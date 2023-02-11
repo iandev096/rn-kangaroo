@@ -1,7 +1,7 @@
 import React, { ForwardedRef, forwardRef, useState } from "react";
 import { TextInput, View } from "react-native";
 import COLOR from "src/constants/COLOR";
-import { CustomTextInputProps } from "../types";
+import { CustomTextInputProps } from "../shared/types";
 import { getStyles } from "./styles";
 
 function TextArea(

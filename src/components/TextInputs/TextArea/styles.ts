@@ -5,8 +5,8 @@ import {
   borderColor,
   color,
   fontSize,
-} from "../styles.config";
-import { StyleConfig } from "../types";
+} from "../shared/styles.config";
+import { StyleConfig } from "../shared/types";
 
 export const getStyles = ({ size, disabled, focus, status }: StyleConfig) =>
   StyleSheet.create({
