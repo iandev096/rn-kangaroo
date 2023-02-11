@@ -11,9 +11,11 @@ import EnterLocationScreen from "src/screens/EnterLocationScreen";
 import HistoryDetailScreen from "src/screens/HistoryDetailScreen";
 import HistoryListScreen from "src/screens/HistoryListScreen";
 import HomeScreen from "src/screens/HomeScreen";
+import ProfileScreen from "src/screens/ProfileScreen";
 import RecipientScreen from "src/screens/RecipientScreen";
 import ReportProblemScreen from "src/screens/ReportProblemScreen";
 import SearchingVehicleScreen from "src/screens/SearchingVehicleScreen";
+import SettingsScreen from "src/screens/SettingsScreen";
 import VehicleEnRouteScreen from "src/screens/VehicleEnRouteScreen";
 import { AppStackParamList } from "./types";
 
@@ -26,6 +28,16 @@ const defaultOptions: StackNavigationOptions = {
 function AppStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        options={defaultOptions}
+        name="ProfileScreen"
+        component={ProfileScreen}
+      />
+      <Stack.Screen
+        options={defaultOptions}
+        name="SettingsScreen"
+        component={SettingsScreen}
+      />
       <Stack.Screen
         options={defaultOptions}
         name="EarningsScreen"

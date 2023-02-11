@@ -13,6 +13,8 @@ export type AppStackParamList = {
   HistoryDetailScreen: undefined;
   ReportProblemScreen: undefined;
   EarningsScreen: undefined;
+  SettingsScreen: undefined;
+  ProfileScreen: undefined;
 };
 
 export type AppStackProps = StackScreenProps<AppStackParamList>;
