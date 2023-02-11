@@ -1,4 +1,6 @@
 import AuthHeader from "./components/AuthHeader";
+import ChangePasswordForm from "./components/ChangePasswordForm";
+import ChangePasswordHeader from "./components/ChangePasswordHeader";
 import SignInForm from "./components/SignInForm";
 import SignUpForm from "./components/SignUpForm";
 import VerifyPhoneHeader from "./components/VerifyPhoneHeader";
@@ -10,4 +12,6 @@ export {
   AuthHeader,
   VerifyPhoneHeader,
   VerifyPhoneOTP,
+  ChangePasswordHeader,
+  ChangePasswordForm,
 };
