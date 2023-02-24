@@ -30,7 +30,12 @@ function TextField({
         <TextFieldContainer style={textInputContainerStyle}>
           <Slot child={left} />
           <TextFieldInput style={style} {...props} />
-          <ClearButton onChangeText={props.onChangeText} value={props.value} />
+          {!disabled ? (
+            <ClearButton
+              onChangeText={props.onChangeText}
+              value={props.value}
+            />
+          ) : null}
         </TextFieldContainer>
       </MemoizedContainer>
     </TextFieldProvider>
