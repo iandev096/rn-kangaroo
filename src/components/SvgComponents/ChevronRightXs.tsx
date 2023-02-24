@@ -1,15 +1,9 @@
 import * as React from "react";
 import Svg, { Path, SvgProps } from "react-native-svg";
 
-function ChevronRight({ width = 8, height = 14, ...props }: SvgProps) {
+function ChevronRightXs(props: SvgProps) {
   return (
-    <Svg
-      width={width}
-      height={height}
-      viewBox="0 0 8 14"
-      fill="none"
-      {...props}
-    >
+    <Svg width={8} height={14} viewBox="0 0 8 14" fill="none" {...props}>
       <Path
         d="M1.64 1l5.455 6-5.454 6"
         stroke="#AFAFAF"
@@ -21,4 +15,4 @@ function ChevronRight({ width = 8, height = 14, ...props }: SvgProps) {
   );
 }
 
-export default ChevronRight;
+export default ChevronRightXs;
