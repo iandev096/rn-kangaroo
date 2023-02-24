@@ -26,4 +26,7 @@ export default {
   HISTORY_DETAIL_MAP: require("../../assets/images/history-detail-map.jpg"),
   RECIPIENT_AVATAR: require("../../assets/images/recipient-avatar.jpg"),
   GHANA_FLAG: require("../../assets/images/gh-flag.png"),
+  MTN_MOMO: require("../../assets/images/mtn-momo.png"),
+  VODA_CASH: require("../../assets/images/voda-cash.png"),
+  AIRTEL_MONEY: require("../../assets/images/airtel-money.png"),
 };
