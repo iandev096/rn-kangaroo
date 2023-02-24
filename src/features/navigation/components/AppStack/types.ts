@@ -17,6 +17,17 @@ export type AppStackParamList = {
   ProfileScreen: undefined;
   VerifyPhoneNumberScreen: undefined;
   ChangePasswordScreen: undefined;
+  PayoutScreen: undefined;
+  SelectBankScreen: undefined;
+  SelectNetworkScreen: undefined;
+  SecurityScreen: undefined;
+  SettingsNotificationScreen: undefined;
+  NotificationsScreen: undefined;
+  FaqCategoriesScreen: undefined;
+  FaqQuestionsScreen: undefined;
+  FaqAnswersScreen: undefined;
+  ContactUsScreen: undefined;
+  AboutScreen: undefined;
 };
 
 export type AppStackProps = StackScreenProps<AppStackParamList>;

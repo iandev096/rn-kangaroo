@@ -1,18 +1,33 @@
-import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { SettingsHeader, SettingsList, UserInfo } from "src/features/settings";
+import {
+  LogoutBottomSheet,
+  SettingsHeader,
+  SettingsList,
+  UserInfo,
+} from "src/features/settings";
+import useScrollEnabled from "src/hooks/useScrollEnabled";
 
 type Props = {};
 
 function SettingsScreen({}: Props) {
+  const [showLogoutDialog, setShowLogoutDialog] = useState(true);
+  const { onLayout, scrollEnabled } = useScrollEnabled();
+
   return (
     <SafeAreaView style={styles.container}>
       <SettingsHeader />
-      <ScrollView>
-        <UserInfo />
-        <SettingsList />
+      <ScrollView scrollEnabled={scrollEnabled}>
+        <View onLayout={onLayout}>
+          <UserInfo />
+          <SettingsList />
+        </View>
       </ScrollView>
+      <LogoutBottomSheet
+        show={showLogoutDialog}
+        onClose={() => setShowLogoutDialog(false)}
+      />
     </SafeAreaView>
   );
 }
