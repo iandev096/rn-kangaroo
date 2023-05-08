@@ -1,9 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import { FONT_FAMILY } from "src/constants/FONT";
+import { Image, View } from "react-native";
+import KangarooIcon from "src/components/SvgComponents/KangorooIcon";
+import RegIcon from "src/components/SvgComponents/RegIcon";
 import IMAGES from "src/constants/IMAGES";
-import COLOR from "src/constants/COLOR";
+import { styles } from "./styles";
 
 type Props = {};
 
@@ -11,49 +12,16 @@ function AuthHeader({}: Props) {
   return (
     <View style={styles.authHeader}>
       <Image style={styles.background} source={IMAGES.AUTH_HEADER_BANNER} />
-      <View style={styles.content}>
-        <Image
-          resizeMode="contain"
-          style={styles.kangarooLogo}
-          source={IMAGES.KANGAROO_LOGO}
-        />
-        <Text style={styles.text}>Find the perfect way to move anything.</Text>
+      <View style={styles.overlay} />
+      <View style={styles.logoContainer}>
+        <KangarooIcon width={72} height={36} />
+        <View style={styles.regIconContainer}>
+          <RegIcon />
+        </View>
       </View>
       <StatusBar style="light" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  authHeader: {
-    height: 284,
-    width: "100%",
-    position: "relative",
-    backgroundColor: COLOR.PRIMARY_B,
-    justifyContent: "center",
-  },
-  content: {
-    padding: 32,
-  },
-  kangarooLogo: {
-    width: 183,
-    height: 28,
-    resizeMode: "contain",
-    marginBottom: 20,
-  },
-  text: {
-    fontSize: 18,
-    lineHeight: 23,
-    fontFamily: FONT_FAMILY.BR_FIRMA_LIGHT,
-    color: COLOR.PRIMARY_B,
-  },
-  background: {
-    ...StyleSheet.absoluteFillObject,
-    flex: 1,
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
-  },
-});
 
 export default AuthHeader;

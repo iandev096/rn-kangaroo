@@ -6,12 +6,12 @@ import Slot from "../Slot";
 import { getStyles } from "./styles";
 
 export type TagProps = {
-  left: React.ReactNode;
+  left?: React.ReactNode;
   title: string;
-  variant: Variant;
+  variant?: Variant;
 };
 
-function Tag({ title, left, variant }: TagProps) {
+function Tag({ title, left, variant = "normal" }: TagProps) {
   const styles = getStyles(variant);
 
   return (

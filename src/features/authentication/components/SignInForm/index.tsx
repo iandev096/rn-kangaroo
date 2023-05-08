@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Button from "src/components/Button";
 import TextField from "src/components/TextInputs/TextField";
 import { FONT_FAMILY } from "src/constants/FONT";
+import NavPills from "./NavPills";
 
 type Props = {
   onSubmit?: Function;
@@ -12,6 +13,7 @@ function SignInForm({}: Props) {
   return (
     <View>
       <Text style={styles.title}>Sign in</Text>
+      <NavPills />
       <View style={styles.textFieldGroup}>
         <View style={styles.textFieldContainer}>
           <TextField

@@ -3,7 +3,7 @@ import AppStack from "../AppStack";
 import AuthStack from "../AuthStack";
 
 function Main() {
-  return <>{false ? <AuthStack /> : <AppStack />}</>;
+  return <>{true ? <AuthStack /> : <AppStack />}</>;
 }
 
 export default Main;
