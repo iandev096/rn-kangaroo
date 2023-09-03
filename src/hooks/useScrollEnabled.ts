@@ -9,7 +9,7 @@ import { Keyboard, LayoutChangeEvent, useWindowDimensions } from "react-native";
  * ```onLayout``` must be set on the view in question.
  */
 
-function useScrollEnabled() {
+function useScrollEnabled(overflowHeight = 0) {
   const [keyboardShown, setKeyboardShown] = useState(false);
   const [viewOverflows, setviewOverflows] = useState(false);
 
@@ -30,8 +30,9 @@ function useScrollEnabled() {
   }, []);
 
   const windowHeight = useWindowDimensions().height;
+  overflowHeight = overflowHeight ?? windowHeight;
   const onLayout = (ev: LayoutChangeEvent) => {
-    if (ev.nativeEvent.layout.height > windowHeight) {
+    if (ev.nativeEvent.layout.height > overflowHeight) {
       setviewOverflows(true);
     }
   };

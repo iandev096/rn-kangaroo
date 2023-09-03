@@ -1,4 +1,5 @@
 import React from "react";
+import { useController } from "react-hook-form";
 import { StyleSheet, View } from "react-native";
 import Slot from "src/components/Slot";
 import ClearButton from "../shared/ClearButton";
@@ -7,7 +8,11 @@ import TextFieldContainer from "../shared/TextFieldContainer";
 import TextFieldInput from "../shared/TextFieldInput";
 import TextFieldLabel from "../shared/TextFieldLabel";
 import TextFieldProvider from "../shared/TextFieldProvider";
-import { CustomTextInputProps } from "../shared/types";
+import {
+  CustomTextInputProps,
+  InputControlProps,
+  PhoneTextInputProps,
+} from "../shared/types";
 import CountrySelect from "./CountrySelect";
 
 function PhoneTextField({
@@ -20,8 +25,9 @@ function PhoneTextField({
   labelStyle,
   textInputContainerStyle = {},
   left,
+  countryCode = "233",
   ...props
-}: CustomTextInputProps) {
+}: CustomTextInputProps & PhoneTextInputProps) {
   return (
     <TextFieldProvider size={size} disabled={disabled} status={status}>
       <MemoizedContainer>
@@ -45,6 +51,38 @@ function PhoneTextField({
     </TextFieldProvider>
   );
 }
+
+PhoneTextField.Control = function PhoneTextFieldControl({
+  name,
+  control,
+  defaultValue = "",
+  countryCode = "233",
+  ...props
+}: CustomTextInputProps & PhoneTextInputProps & InputControlProps) {
+  defaultValue = `+${countryCode}`;
+  const { field } = useController({
+    control,
+    defaultValue,
+    name,
+  });
+
+  const handleOnChangeText = (text: string) => {
+    if (text.length === 0 || !text.startsWith("+233")) {
+      text = `+${countryCode}`;
+    }
+
+    field.onChange(text);
+  };
+
+  return (
+    <PhoneTextField
+      {...props}
+      value={field.value}
+      onChangeText={handleOnChangeText}
+      maxLength={13}
+    />
+  );
+};
 
 const styles = StyleSheet.create({
   controls: {

@@ -1,3 +1,4 @@
+import { Control } from "react-hook-form";
 import { TextInput, TextStyle, View } from "react-native";
 
 export type Size = "medium" | "small";
@@ -13,6 +14,16 @@ export type CustomTextInputProps = {
   textInputContainerStyle?: View["props"]["style"];
   left?: React.ReactNode;
 } & TextInput["props"];
+
+export type PhoneTextInputProps = {
+  countryCode?: string;
+};
+
+export type InputControlProps = {
+  name: string;
+  control: Control<any>;
+  defaultValue?: string;
+};
 
 export type StyleConfig = {
   size: Size;

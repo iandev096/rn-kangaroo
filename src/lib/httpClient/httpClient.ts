@@ -11,20 +11,26 @@ export class HttpClient implements IHttpClient<AxiosInstance> {
   instance: AxiosInstance;
   private jwtService: JWTService;
 
-  constructor(baseURL: string, config: AxiosRequestConfig = {}) {
+  constructor(
+    baseURL: string,
+    config: Omit<AxiosRequestConfig, "baseURL"> = {}
+  ) {
     this.instance = axios.create({
-      baseURL,
       ...config,
+      baseURL,
     });
 
     this.jwtService = JWTService.getInstance();
   }
 
   get<T>(parameters: IHttpRequestParameters): Promise<Response<T>> {
-    return new Promise<Response<T>>((resolve, reject) => {
-      const { url, requiresToken, queryParams } = parameters;
+    return new Promise<Response<T>>(async (resolve, reject) => {
+      const { url, requiresAuthToken, queryParams } = parameters;
 
-      const options = this.createRequestOptions(requiresToken, queryParams);
+      const options = await this.createRequestOptions(
+        requiresAuthToken,
+        queryParams
+      );
 
       this.instance
         .get(url, options)
@@ -40,10 +46,13 @@ export class HttpClient implements IHttpClient<AxiosInstance> {
   post<T>(
     parameters: IHttpRequestParameters & IHttpPayloadable<any>
   ): Promise<Response<T>> {
-    return new Promise<Response<T>>((resolve, reject) => {
-      const { payload, requiresToken, url, queryParams } = parameters;
+    return new Promise<Response<T>>(async (resolve, reject) => {
+      const { payload, requiresAuthToken, url, queryParams } = parameters;
 
-      const options = this.createRequestOptions(requiresToken, queryParams);
+      const options = await this.createRequestOptions(
+        requiresAuthToken,
+        queryParams
+      );
 
       this.instance
         .post(url, payload, options)
@@ -59,10 +68,13 @@ export class HttpClient implements IHttpClient<AxiosInstance> {
   patch<T>(
     parameters: IHttpRequestParameters & IHttpPayloadable<any>
   ): Promise<Response<T>> {
-    return new Promise<Response<T>>((resolve, reject) => {
-      const { payload, requiresToken, url, queryParams } = parameters;
+    return new Promise<Response<T>>(async (resolve, reject) => {
+      const { payload, requiresAuthToken, url, queryParams } = parameters;
 
-      const options = this.createRequestOptions(requiresToken, queryParams);
+      const options = await this.createRequestOptions(
+        requiresAuthToken,
+        queryParams
+      );
 
       this.instance
         .patch(url, payload, options)
@@ -76,10 +88,13 @@ export class HttpClient implements IHttpClient<AxiosInstance> {
   }
 
   delete<T>(parameters: IHttpRequestParameters): Promise<Response<T>> {
-    return new Promise<Response<T>>((resolve, reject) => {
-      const { url, requiresToken, queryParams } = parameters;
+    return new Promise<Response<T>>(async (resolve, reject) => {
+      const { url, requiresAuthToken, queryParams } = parameters;
 
-      const options = this.createRequestOptions(requiresToken, queryParams);
+      const options = await this.createRequestOptions(
+        requiresAuthToken,
+        queryParams
+      );
 
       this.instance
         .delete(url, options)
@@ -92,11 +107,14 @@ export class HttpClient implements IHttpClient<AxiosInstance> {
     });
   }
 
-  private createRequestOptions(requiresToken: boolean, queryParams = {}) {
+  private async createRequestOptions(
+    requiresAuthToken: boolean,
+    queryParams = {}
+  ) {
     const options: AxiosRequestConfig = { headers: {}, params: {} };
 
-    if (requiresToken) {
-      const token = this.jwtService.getJWT();
+    if (requiresAuthToken) {
+      const token = await this.jwtService.getJWT();
       options.headers!.Authorization = `Bearer ${token}`;
     }
 

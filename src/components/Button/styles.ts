@@ -32,6 +32,9 @@ const getStyles = (variant: Variant) =>
       lineHeight: 24,
       color: color[variant],
     },
+    disabled: {
+      backgroundColor: COLOR.GRAY_600,
+    },
   });
 
 export default getStyles;

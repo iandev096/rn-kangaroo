@@ -1,4 +1,5 @@
-import APP from "src/constants/app";
+import * as SecureStore from "expo-secure-store";
+import APP from "src/constants/APP";
 
 export class JWTService {
   private static instance: JWTService;
@@ -13,7 +14,20 @@ export class JWTService {
     return JWTService.instance;
   }
 
-  getJWT(key: string = APP.AUTH_JWT_KEY) {
-    return "jwt";
+  async getJWT(key: string = APP.AUTH_JWT_KEY) {
+    try {
+      const jwt = await SecureStore.getItemAsync(key);
+      return jwt;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async setJWT(jwt: string, key: string = APP.AUTH_JWT_KEY) {
+    try {
+      await SecureStore.setItemAsync(key, jwt);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

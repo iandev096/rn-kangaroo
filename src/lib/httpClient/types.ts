@@ -2,7 +2,7 @@ type Object = Record<string, string | number>;
 
 export interface IHttpRequestParameters {
   url: string;
-  requiresToken: boolean;
+  requiresAuthToken: boolean;
   queryParams?: Object;
 }
 

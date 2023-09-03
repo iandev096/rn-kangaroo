@@ -20,10 +20,12 @@ function Button({
 }: Props) {
   const styles = getStyles(variant);
 
+  console.log("props.disabled", props.disabled);
+
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      style={[style, styles.container]}
+      style={[style, styles.container, props.disabled && styles.disabled]}
       {...props}
     >
       <View style={styles.content}>
